@@ -1,0 +1,28 @@
+:root,
+[data-theme="paper"],
+[data-theme="sepia"],
+[data-theme="night"] {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+    sans-serif;
+  --font-serif: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+}
+
+html,
+body {
+  background: var(--bg);
+}
+
+.toolbar {
+  padding-left: 88px;
+  -webkit-app-region: drag;
+}
+
+.toolbar button,
+.toolbar input,
+.toolbar a {
+  -webkit-app-region: no-drag;
+}
+
+.stage-page .toolbar {
+  padding-left: 16px;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "pisanie",
+  "productName": "Писание",
+  "version": "1.0.0",
+  "description": "Синодальная Библия для Mac — чтение и вывод стиха на второй экран",
+  "main": "main.cjs",
+  "author": "Писание",
+  "license": "MIT"
+}
