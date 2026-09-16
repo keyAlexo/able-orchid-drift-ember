@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Писание">
+  <rect width="32" height="32" rx="8" fill="#F7F4EE"/>
+  <rect fill="#1C1917" x="14" y="6" width="4" height="20"/>
+  <rect fill="#1C1917" x="8" y="10" width="16" height="4"/>
+  <rect fill="#1C1917" x="12" y="6" width="8" height="2"/>
+  <rect fill="#1C1917" x="12" y="24" width="8" height="2"/>
+  <rect fill="#1C1917" x="8" y="8" width="2" height="8"/>
+  <rect fill="#1C1917" x="22" y="8" width="2" height="8"/>
+</svg>

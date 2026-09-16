@@ -1,0 +1,1 @@
+import{n as e}from"./index-CZN19He8.js";import{t}from"./StageScreen-RDpF6HRp.js";var n=e();function r(){return(0,n.jsx)(`main`,{className:`stage-page`,children:(0,n.jsx)(t,{})})}export{r as component};

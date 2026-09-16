@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-elevated: var(--elevated);
+  --color-fill: var(--fill);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-ink: var(--ink);
+  --color-ink-fg: var(--ink-fg);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-line: var(--line);
+  --color-verse: var(--verse);
+  --color-stage: var(--stage-bg);
+  --color-stage-fg: var(--stage-fg);
+  --color-stage-muted: var(--stage-muted);
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-serif: "Source Serif 4", Iowan Old Style, Palatino, "Palatino Linotype",
+    Georgia, serif;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-border: 0 0 0 1px color-mix(in oklab, var(--fg) 8%, transparent),
+    0 1px 2px -1px color-mix(in oklab, var(--fg) 8%, transparent);
+}
+
+@layer base {
+  :root,
+  [data-theme="paper"] {
+    --bg: #efeae2;
+    --paper: #fbf8f2;
+    --elevated: #f4efe7;
+    --fill: color-mix(in oklab, #1c1917 6%, transparent);
+    --fg: #1c1917;
+    --muted: #6f675e;
+    --subtle: #9a9288;
+    --ink: #1c1917;
+    --ink-fg: #fbf8f2;
+    --accent: #1c1917;
+    --accent-fg: #fbf8f2;
+    --line: color-mix(in oklab, #1c1917 10%, transparent);
+    --verse: color-mix(in oklab, #1c1917 7%, transparent);
+    --stage-bg: #121110;
+    --stage-fg: #f4efe6;
+    --stage-muted: #a39a90;
+    --motion-quick: 150ms;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    color-scheme: light;
+  }
+
+  [data-theme="sepia"] {
+    --bg: #e4d4bc;
+    --paper: #f3e6cf;
+    --elevated: #eadcc6;
+    --fill: color-mix(in oklab, #3b2f23 8%, transparent);
+    --fg: #3b2f23;
+    --muted: #7a6854;
+    --subtle: #9c8a74;
+    --ink: #3b2f23;
+    --ink-fg: #f3e6cf;
+    --accent: #3b2f23;
+    --accent-fg: #f3e6cf;
+    --line: color-mix(in oklab, #3b2f23 12%, transparent);
+    --verse: color-mix(in oklab, #3b2f23 8%, transparent);
+    --stage-bg: #1b1612;
+    --stage-fg: #f3e6cf;
+    --stage-muted: #b5a48e;
+    color-scheme: light;
+  }
+
+  [data-theme="night"] {
+    --bg: #0c0c0d;
+    --paper: #161513;
+    --elevated: #1c1b19;
+    --fill: color-mix(in oklab, #f5f2ec 8%, transparent);
+    --fg: #f5f2ec;
+    --muted: #a8a29e;
+    --subtle: #7a746e;
+    --ink: #f5f2ec;
+    --ink-fg: #161513;
+    --accent: #f5f2ec;
+    --accent-fg: #161513;
+    --line: color-mix(in oklab, #f5f2ec 10%, transparent);
+    --verse: color-mix(in oklab, #f5f2ec 8%, transparent);
+    --stage-bg: #090909;
+    --stage-fg: #f5f2ec;
+    --stage-muted: #9a948c;
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--fg) 16%, transparent);
+  }
+}
+
+@layer components {
+  .app-shell {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: var(--bg);
+    color: var(--fg);
+    overflow: hidden;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 56px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    min-width: 0;
+  }
+
+  .workspace {
+    display: grid;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    .workspace {
+      grid-template-columns: 16.5rem minmax(0, 1fr);
+    }
+    .workspace.has-stage {
+      grid-template-columns: 16.5rem minmax(0, 1fr) 22rem;
+    }
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: var(--bg);
+    border-right: 1px solid var(--line);
+  }
+
+  .reader {
+    min-width: 0;
+    min-height: 0;
+    background: var(--paper);
+  }
+
+  .stage-panel {
+    min-width: 0;
+    min-height: 0;
+    background: var(--stage-bg);
+    color: var(--stage-fg);
+    border-left: 1px solid color-mix(in oklab, var(--stage-fg) 10%, transparent);
+  }
+
+  .stage-page {
+    height: 100dvh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--stage-bg);
+  }
+
+  .stage-ghost {
+    border: 0;
+    background: color-mix(in oklab, var(--stage-fg) 8%, transparent);
+    color: var(--stage-fg);
+  }
+
+  .stage-ghost:hover {
+    background: color-mix(in oklab, var(--stage-fg) 14%, transparent);
+  }
+
+  .sidebar-drawer {
+    width: min(20rem, 100%);
+  }
+
+  @media (min-width: 1024px) {
+    .sidebar-drawer {
+      width: 100%;
+    }
+  }
+
+  .search-layer {
+    padding-top: 12vh;
+  }
+
+  .search-dialog {
+    max-height: 72vh;
+  }
+
+  .chapter-bar {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 4px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    padding: 8px;
+  }
+
+  .verse-row {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    gap: 10px;
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 10px;
+    text-align: left;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    font-family: var(--font-serif);
+    line-height: 1.62;
+    transition:
+      background-color 150ms cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .verse-row:hover {
+    background: var(--fill);
+  }
+
+  .verse-row.is-selected {
+    background: var(--verse);
+    box-shadow: inset 3px 0 0 var(--ink);
+  }
+
+  .verse-row.is-presented:not(.is-selected) {
+    box-shadow: inset 3px 0 0 color-mix(in oklab, var(--ink) 35%, transparent);
+  }
+
+  .verse-num {
+    font-family: var(--font-sans);
+    font-size: 0.72em;
+    font-weight: 500;
+    line-height: 1.9;
+    color: var(--subtle);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stage-verse {
+    animation: stage-in 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .book-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--fg);
+    text-align: left;
+    font-size: 0.9375rem;
+    transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .book-item:hover {
+    background: var(--fill);
+  }
+
+  .book-item.is-active {
+    background: var(--ink);
+    color: var(--ink-fg);
+  }
+
+  .chapter-chip {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    transition:
+      background-color 150ms cubic-bezier(0.23, 1, 0.32, 1),
+      color 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .chapter-chip:hover {
+    background: var(--fill);
+    color: var(--fg);
+  }
+
+  .chapter-chip.is-active {
+    background: var(--ink);
+    color: var(--ink-fg);
+  }
+
+  .tap-scale:active:not(:disabled) {
+    scale: 0.96;
+  }
+}
+
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-row,
+  .book-item,
+  .chapter-chip,
+  .stage-verse,
+  .tap-scale {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--fg) 22%, transparent) transparent;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--fg) 18%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}

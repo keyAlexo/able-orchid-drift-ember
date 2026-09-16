@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Писание",
+      "hasCanvas": false,
+      "bodyTextLen": 263,
+      "bodyTextHash": "53a32c53839ec4b3bae6aef31f296401ce2bfba3cad906cc14c96ae35e72ac38",
+      "bodyTextPrefix": "Писание / Синодальный перевод Писание Второй экран Библия Заклад",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Писание",
+      "hasCanvas": false,
+      "bodyTextLen": 4606,
+      "bodyTextHash": "92d7a81783a16de9bb374cf0842bc9caf098d64cec8b2b7b51d5dbc5cbfd3fc2",
+      "bodyTextPrefix": "От Иоанна 1:1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20",
+      "horizontalOverflow": true,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
